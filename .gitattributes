@@ -1,0 +1,321 @@
+# Text/Binary ----------------------------------------------------------------------------------------------------------
+
+# Default
+
+* text=auto
+
+# Text
+
+*.md text
+*.txt text
+
+# Logs
+
+*.log text
+
+# YAML
+
+*.yaml text
+*.yml text
+
+# Properties.
+
+*.properties text
+
+# Translations
+
+*.pot text
+
+# SQL
+
+*.sql text
+*.sqlite text
+
+# Templates
+
+*.liq text
+*.liquid text
+*.tmpl text
+*.tpl text
+
+# Config
+
+*.admins text
+*.cfg text
+*.cnf text
+*.conf text
+*.htaccess text
+*.htaccess-apache text
+*.htpasswd text
+*.ini text
+
+# CSS
+
+*.css text
+*.css.map text
+*.less text
+*.sass text
+*.scss text
+
+# JavaScript
+
+*.babelrc text
+*.js text
+*.js.map text
+*.json text
+*.json5 text
+*.jsx text
+*.npmrc text
+*.ts text
+*.tsx text
+
+# Applescript
+
+*.applescript text
+*.scpt binary
+
+# PHP
+
+*.inc text
+*.php text
+*.php4 text
+*.php5 text
+*.php6 text
+*.phps text
+*.x-php text
+
+# ASP
+
+*.asp text
+*.aspx text
+
+# Perl
+
+*.cgi text
+*.pl text
+
+# HTML/XML
+
+*.dtd text
+*.hta text
+*.htc text
+*.htm text
+*.html text
+*.shtml text
+*.xhtml text
+*.xml text
+*.xsd text
+*.xsl text
+*.xslt text
+
+# Documents
+
+*.csv text
+*.doc binary
+*.docx binary
+*.odt binary
+*.pdf binary
+*.pptx binary
+*.rtf binary
+*.tsv text
+*.xls binary
+*.xlsx binary
+
+# Images
+
+*.ai binary
+*.bmp binary
+*.eps binary
+*.gif binary
+*.ico binary
+*.jpe binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.psd binary
+*.pspimage binary
+*.svg text
+*.tif binary
+*.tiff binary
+*.webp binary
+
+# Audio
+
+*.mid binary
+*.midi binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.wma binary
+
+# Video
+
+*.avi binary
+*.blend binary
+*.fla binary
+*.flv binary
+*.mov binary
+*.mp4 binary
+*.mpeg binary
+*.mpg binary
+*.ogv binary
+*.qt binary
+*.swf binary
+*.webm binary
+*.wmv binary
+
+# Fonts
+
+*.eot binary
+*.otf binary
+*.ttf binary
+*.woff binary
+
+# Archives
+
+*.7z binary
+*.dmg binary
+*.gtar binary
+*.gz binary
+*.iso binary
+*.jar binary
+*.phar binary
+*.rar binary
+*.tar binary
+*.tgz binary
+*.zip binary
+
+# Other
+
+*.bash text
+*.bat text
+*.bin binary
+*.class binary
+*.com binary
+*.dll binary
+*.exe binary
+*.pem text
+*.sh text
+*.so binary
+*.zsh text
+
+# Export Ignore — this follows `.gitignore` almost exactly. ------------------------------------------------------------
+# Exceptions: don't ignore `node_modules/`, `jspm_packages/`, `bower_components/` or `vendor/`.
+
+# Local
+
+.#* export-ignore
+._* export-ignore
+.~* export-ignore
+
+# Logs
+
+*.log export-ignore
+
+# Backups
+
+*.bak export-ignore
+*~ export-ignore
+
+# Vagrant
+
+.vagrant/ export-ignore
+
+# TypeScript
+
+typings/ export-ignore
+
+# IntelliJ
+
+.idea/ export-ignore
+
+# Sublime
+
+*.sublime-project export-ignore
+*.sublime-workspace export-ignore
+
+# Netbeans
+
+*.nbproject export-ignore
+
+# VS Code
+
+.vscode/ export-ignore
+*.code-workspace export-ignore
+
+# Linaria & SASS
+
+.linaria-cache/ export-ignore
+.sass-cache/ export-ignore
+
+# Elastic Beanstalk
+
+.elasticbeanstalk/ export-ignore
+
+# CTAGs
+
+*.ctags export-ignore
+*.tags export-ignore
+
+# VCS
+
+.git/ export-ignore
+.git-dir/ export-ignore
+
+.svn/ export-ignore
+_svn/ export-ignore
+
+CVS/ export-ignore
+.cvsignore export-ignore
+
+.bzr/ export-ignore
+.bzrignore export-ignore
+
+.hg/ export-ignore
+.hgignore export-ignore
+
+SCCS/ export-ignore
+RCS/ export-ignore
+
+# PC Files
+
+$RECYCLE.BIN/ export-ignore
+Desktop.ini export-ignore
+Thumbs.db export-ignore
+ehthumbs.db export-ignore
+
+# Mac Files
+
+.AppleDB export-ignore
+.AppleDouble export-ignore
+.AppleDesktop export-ignore
+.com.apple.timemachine.donotpresent export-ignore
+Network Trash Folder export-ignore
+Temporary Items export-ignore
+.LSOverride export-ignore
+.Spotlight-V100 export-ignore
+.VolumeIcon.icns export-ignore
+.TemporaryItems export-ignore
+.fseventsd export-ignore
+.DS_Store export-ignore
+.Trashes export-ignore
+.apdisk export-ignore
+Icon? export-ignore
+Icons -export-ignore
+._* export-ignore
+
+# Export Ignore — in addition to what we have in `.gitignore`. ---------------------------------------------------------
+
+# LFS Storage
+
+/lfs/ export-ignore
+
+# LFS Storage ----------------------------------------------------------------------------------------------------------
+
+/lfs/** filter=lfs diff=lfs merge=lfs -text
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+# <custom>
+#   Put your rules in custom comment markers.
+# </custom>

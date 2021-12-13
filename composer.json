@@ -1,0 +1,67 @@
+{
+	"license": "GPL-2.0-or-later",
+	"name": "clevercanyon/wpgroove-framework-dev",
+	"description": "Intended for internal company use only. WP Groove's dev framework is for WordPress development.",
+	"authors": [
+		{
+			"name": "WP Groove",
+			"homepage": "https://wpgroove.com",
+			"role": "organization"
+		}
+	],
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+	"config": {
+		"process-timeout": 0,
+		"optimize-autoloader": true
+	},
+	"require": {
+		"clevercanyon/php-js-utilities": "dev-main",
+		"clevercanyon/php-js-utilities-dev": "dev-main"
+	},
+	"autoload": {
+		"psr-4": {
+			"WP_Groove\\Framework_Dev\\": "./src/classes"
+		}
+	},
+	"autoload-dev": {
+		"files": [ "../../wpgroove-framework/vendor/autoload.php" ],
+		"psr-4": {
+			"WP_Groove\\Framework_Dev__Tests\\": "./tests/classes"
+		}
+	},
+	"scripts": {
+		"post-update-cmd": [
+			"[ $COMPOSER_DEV_MODE -eq 0 ] || ./src/toolchain/composer/post-update-cmd.php"
+		],
+		"run-project-tests": [
+			"XDEBUG_MODE=coverage phpunit --configuration ./.phpunit.xml --testsuite tests"
+		]
+	},
+	"extra": {
+		"props": {
+			"brand": {
+				"data": {
+					"slug": "wpgroove"
+				},
+				"aws": {
+					"s3": {
+						"bucket": "wpgroove",
+						"cdn_domain": "cdn.wpgroove.com"
+					}
+				}
+			}
+		},
+		"props-dev": {
+			"dev_json_map": {
+				"brand": {
+					"aws": {
+						"s3": {
+							"hash_hmac_key_path": "clevercanyon.wpgroove.aws.s3.hash_hmac_key"
+						}
+					}
+				}
+			}
+		}
+	}
+}
