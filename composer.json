@@ -1,64 +1,66 @@
 {
-	"license": "GPL-2.0-or-later",
-	"name": "clevercanyon/wpgroove-framework-dev",
-	"description": "Intended for internal company use only. WP Groove's dev framework is for WordPress development.",
-	"authors": [
+	"license"           : "GPL-2.0-or-later",
+	"name"              : "clevercanyon/wpgroove-framework-dev",
+	"description"       : "Intended for internal company use only. WP Groove's dev framework is for WordPress development.",
+	"authors"           : [
 		{
-			"name": "WP Groove",
-			"homepage": "https://wpgroove.com",
-			"role": "organization"
+			"name"     : "WP Groove",
+			"homepage" : "https://wpgroove.com",
+			"role"     : "organization"
 		}
 	],
-	"prefer-stable": true,
-	"minimum-stability": "dev",
-	"config": {
-		"process-timeout": 0,
-		"optimize-autoloader": true
-	},
-	"require": {
-		"clevercanyon/php-js-utilities": "dev-main",
-		"clevercanyon/php-js-utilities-dev": "dev-main"
-	},
-	"autoload": {
-		"psr-4": {
-			"WP_Groove\\Framework_Dev\\": "./src/classes"
+	"prefer-stable"     : true,
+	"minimum-stability" : "dev",
+	"config"            : {
+		"process-timeout"     : 0,
+		"optimize-autoloader" : true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	},
-	"autoload-dev": {
-		"files": [ "../../wpgroove-framework/vendor/autoload.php" ],
-		"psr-4": {
-			"WP_Groove\\Framework_Dev__Tests\\": "./tests/classes"
+	"require"           : {
+		"clevercanyon/php-js-utilities"     : "dev-main",
+		"clevercanyon/php-js-utilities-dev" : "dev-main",
+		"clevercanyon/wpgroove-framework"   : "dev-main"
+	},
+	"autoload"          : {
+		"psr-4" : {
+			"WP_Groove\\Framework_Dev\\" : "./src/classes"
 		}
 	},
-	"scripts": {
-		"post-update-cmd": [
+	"autoload-dev"      : {
+		"psr-4" : {
+			"WP_Groove\\Framework_Dev__Tests\\" : "./tests/classes"
+		}
+	},
+	"scripts"           : {
+		"post-update-cmd"   : [
 			"[ $COMPOSER_DEV_MODE -eq 0 ] || ./src/toolchain/composer/post-update-cmd.php"
 		],
-		"run-project-tests": [
-			"XDEBUG_MODE=coverage phpunit --configuration ./.phpunit.xml --testsuite tests"
+		"run-project-tests" : [
+			"./vendor/bin/phpunit --configuration ./.phpunit.xml --testsuite tests"
 		]
 	},
-	"extra": {
-		"props": {
-			"brand": {
-				"data": {
-					"slug": "wpgroove"
-				},
-				"aws": {
-					"s3": {
-						"bucket": "wpgroove",
-						"cdn_domain": "cdn.wpgroove.com"
-					}
-				}
-			}
-		},
-		"props-dev": {
-			"dev_json_map": {
-				"brand": {
-					"aws": {
-						"s3": {
-							"hash_hmac_key_path": "clevercanyon.wpgroove.aws.s3.hash_hmac_key"
+	"extra"             : {
+		"clevercanyon" : {
+			"&" : {
+				"brand"                   : {
+					"data" : {
+						"slug" : "wpgroove"
+					},
+					"aws"  : {
+						"s3" : {
+							"bucket"     : "wpgroove",
+							"cdn_domain" : "cdn.wpgroove.com"
 						}
+					}
+				},
+				"post_update_cmd_handler" : {
+					"symlink_local_packages" : {
+						"vendor" : [
+							"clevercanyon/wpgroove-framework",
+							"clevercanyon/wpgroove-framework-dev"
+						]
 					}
 				}
 			}
