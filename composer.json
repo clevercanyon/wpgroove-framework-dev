@@ -14,8 +14,8 @@
 	"config"            : {
 		"process-timeout"     : 0,
 		"optimize-autoloader" : true,
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
+		"allow-plugins"       : {
+			"dealerdirect/phpcodesniffer-composer-installer" : true
 		}
 	},
 	"require"           : {
@@ -43,7 +43,8 @@
 	},
 	"extra"             : {
 		"clevercanyon" : {
-			"&" : {
+			"@extends-packages" : [ "clevercanyon/php-js-utilities-dev" ],
+			"&"                 : {
 				"brand"                   : {
 					"data" : {
 						"slug" : "wpgroove"

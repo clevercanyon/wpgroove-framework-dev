@@ -23,9 +23,19 @@ namespace WP_Groove\Framework_Dev\Toolchain\Composer\Hooks;
  *
  * @since 2021-12-15
  */
-use Clever_Canyon\Utilities\OOPs\{Version_1_0_0 as U};
-use Clever_Canyon\Utilities\OOP\Version_1_0_0\{Exception};
-use WP_Groove\Framework\Utilities\OOPs\Version_1_0_0 as UU;
+use Clever_Canyon\Utilities\STC\{Version_1_0_0 as U};
+use Clever_Canyon\Utilities\OOP\Version_1_0_0\{Offsets, Generic, Error, Exception, Fatal_Exception};
+use Clever_Canyon\Utilities\OOP\Version_1_0_0\Abstracts\{A6t_Base, A6t_Offsets, A6t_Generic, A6t_Error, A6t_Exception};
+use Clever_Canyon\Utilities\OOP\Version_1_0_0\Interfaces\{I7e_Base, I7e_Offsets, I7e_Generic, I7e_Error, I7e_Exception};
+
+/**
+ * WP Groove utilities.
+ *
+ * @since 2021-12-15
+ */
+use WP_Groove\Framework\Utilities\STC\{Version_1_0_0 as UU};
+use WP_Groove\Framework\Plugin\Version_1_0_0\Abstracts\{AA6t_Plugin};
+use WP_Groove\Framework\Utilities\OOP\Version_1_0_0\Abstracts\{AA6t_App};
 
 /**
  * Toolchain.
@@ -50,7 +60,7 @@ use Aws\Exception\AwsException;
  *
  * @since 2021-12-15
  */
-class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0\CLI_Tool_Base {
+class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0\Abstracts\A6t_CLI_Tool {
 	/**
 	 * Project.
 	 *
@@ -71,13 +81,15 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	/**
 	 * Constructor.
 	 *
-	 * @since 2021-12-15
+	 * @param string|array|null $args_to_parse Optional custom args to parse instead of `$_SERVER['argv']`.
+	 *                                         If not given, defaults internally to `$_SERVER['argv']`.
 	 */
-	public function __construct() {
+	public function __construct( /* string|array|null */ $args_to_parse = null ) {
 		parent::__construct( 'update' );
 		$this->add_commands( [ 'update' => [] ] );
 
 		if ( U\Env::var( 'COMPOSER_DEV_MODE' ) ) {
+			U\Env::config_debugging_mode();
 			$this->route_request();
 		}
 	}
@@ -86,8 +98,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * Command: `update`.
 	 *
 	 * @since 2021-12-15
-	 *
-	 * @throws Exception On any failure.
 	 */
 	protected function update() : void {
 		try {
