@@ -455,12 +455,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/wpgroove-framework.git",
-                "reference": "e406974718c52d3b91205fea273037a002090180"
+                "reference": "7910241d314b30335686e3f636e77b48b47ff8ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/wpgroove-framework/zipball/e406974718c52d3b91205fea273037a002090180",
-                "reference": "e406974718c52d3b91205fea273037a002090180",
+                "url": "https://api.github.com/repos/clevercanyon/wpgroove-framework/zipball/7910241d314b30335686e3f636e77b48b47ff8ba",
+                "reference": "7910241d314b30335686e3f636e77b48b47ff8ba",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +499,7 @@
                 "issues": "https://github.com/clevercanyon/wpgroove-framework/issues",
                 "source": "https://github.com/clevercanyon/wpgroove-framework/tree/main"
             },
-            "time": "2021-12-31T13:56:39+00:00"
+            "time": "2021-12-31T13:57:40+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
