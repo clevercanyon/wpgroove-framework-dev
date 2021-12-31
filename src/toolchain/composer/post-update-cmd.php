@@ -57,6 +57,15 @@ use WP_Groove\Framework_Dev\Toolchain\Composer\Hooks\{Post_Update_Cmd_Handler};
 // </editor-fold>
 
 /**
+ * CLI mode only.
+ *
+ * @since 2021-12-15
+ */
+if ( 'cli' !== PHP_SAPI ) {
+	exit( 'CLI mode only.' );
+}
+
+/**
  * Dev mode only.
  *
  * @since 2021-12-15
@@ -72,5 +81,11 @@ if ( ! getenv( 'COMPOSER_DEV_MODE' ) ) {
  */
 ${__FILE__}[ 'getcwd' ] = getcwd();
 require_once ${__FILE__}[ 'getcwd' ] . '/vendor/autoload.php';
-new Parent_Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
-new Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+
+if ( 'update' === ( $argv[ 1 ] ?? '' ) ) {
+	new Parent_Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+	new Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+} else {
+	new Parent_Post_Update_Cmd_Handler( [ 'symlink', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+	U\CLI::run( [ $argv[ 0 ], 'update' ] ); // Separate process, after symlinks.
+}

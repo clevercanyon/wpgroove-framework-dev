@@ -96,6 +96,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 						'optional'    => true,
 						'description' => 'Project directory path.',
 						'validator'   => fn( $value ) => is_dir( $value ),
+						'default'     => getcwd(),
 					],
 				],
 			],
@@ -113,7 +114,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 */
 	protected function update() : void {
 		try {
-			$this->project = new Project( getcwd() );
+			$this->project = new Project( $this->get_option( 'project-dir' ) );
 			$this->maybe_run_wp_project_sub_composer_updates();
 
 			$this->maybe_symlink_wp_plugin_locally();
