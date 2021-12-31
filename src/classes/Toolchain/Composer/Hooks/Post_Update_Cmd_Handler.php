@@ -223,9 +223,9 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 			$plugin_file_contents        = preg_replace( '/^(\h*\*\h*)?' . U\Str::esc_reg( $_header ) . '\:\h*.*$/umi', '${1}' . $_header . ': ' . $plugin->headers->{$_prop}, $plugin_file_contents );
 			$plugin_readme_file_contents = preg_replace( '/^(\h*)?' . U\Str::esc_reg( $_header ) . '\:\h*.*$/umi', '${1}' . $_header . ': ' . $plugin->headers->{$_prop}, $plugin_readme_file_contents );
 		}
-		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $plugin->slug ) . "'" . '${2} // @slug', $plugin_file_contents );
-		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $plugin->headers->name ) . "'" . '${2} // @name', $plugin_file_contents );
-		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $plugin->headers->version ) . "'" . '${2} // @version', $plugin_file_contents );
+		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $plugin->slug ) . "'" . '${2} // @slug', $plugin_file_contents );
+		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $plugin->headers->name ) . "'" . '${2} // @name', $plugin_file_contents );
+		$plugin_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $plugin->headers->version ) . "'" . '${2} // @version', $plugin_file_contents );
 
 		if ( false === file_put_contents( $plugin->file, $plugin_file_contents ) ) {
 			throw new Exception( 'Unable to update plugin file when syncing versions: ' . $plugin->file );
@@ -265,13 +265,13 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 			$theme_style_file_contents     = preg_replace( '/^(\h*\*\h*)?' . U\Str::esc_reg( $_header ) . '\:\h*.*$/umi', '${1}' . $_header . ': ' . $theme->headers->{$_prop}, $theme_style_file_contents );
 			$theme_readme_file_contents    = preg_replace( '/^(\h*)?' . U\Str::esc_reg( $_header ) . '\:\h*.*$/umi', '${1}' . $_header . ': ' . $theme->headers->{$_prop}, $theme_readme_file_contents );
 		}
-		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->slug ) . "'" . '${2} // @slug', $theme_file_contents );
-		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->name ) . "'" . '${2} // @name', $theme_file_contents );
-		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->version ) . "'" . '${2} // @version', $theme_file_contents );
+		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->slug ) . "'" . '${2} // @slug', $theme_file_contents );
+		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->name ) . "'" . '${2} // @name', $theme_file_contents );
+		$theme_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->version ) . "'" . '${2} // @version', $theme_file_contents );
 
-		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->slug ) . "'" . '${2} // @slug', $theme_functions_file_contents );
-		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->name ) . "'" . '${2} // @name', $theme_functions_file_contents );
-		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$//uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->version ) . "'" . '${2} // @version', $theme_functions_file_contents );
+		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@slug\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->slug ) . "'" . '${2} // @slug', $theme_functions_file_contents );
+		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@name\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->name ) . "'" . '${2} // @name', $theme_functions_file_contents );
+		$theme_functions_file_contents = preg_replace( '/^(\h*)["\'][^"\']*["\']\h*(,)?\h*\/\/\h*@version\h*$/uim', '${1}' . "'" . U\Str::esc_sq( $theme->headers->version ) . "'" . '${2} // @version', $theme_functions_file_contents );
 
 		if ( false === file_put_contents( $theme->file, $theme_file_contents ) ) {
 			throw new Exception( 'Unable to update theme file when syncing versions: ' . $theme->file );
