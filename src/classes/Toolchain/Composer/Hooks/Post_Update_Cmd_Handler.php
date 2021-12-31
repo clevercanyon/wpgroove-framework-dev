@@ -119,10 +119,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 			$this->maybe_s3_upload_wp_plugin_zip();
 			$this->maybe_s3_upload_wp_theme_zip();
 
-			U\CLI::exit_status( 0 );
-
 		} catch ( \Throwable $throwable ) {
-			U\CLI::error( $throwable->__toString() );
+			U\CLI::error( $throwable->getMessage() );
 			U\CLI::exit_status( 1 );
 		}
 	}
