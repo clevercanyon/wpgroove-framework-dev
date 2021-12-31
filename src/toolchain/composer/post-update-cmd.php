@@ -72,8 +72,8 @@ if ( ! getenv( 'COMPOSER_DEV_MODE' ) ) {
  */
 require_once getcwd() . '/vendor/autoload.php';
 U\Env::config_debugging_mode();
-echo '111111111111111111111111';
+error_log( '111111111111111111111111' );
 new CC_Post_Update_Cmd_Handler();
-echo '222222222222222222222222';
+error_log( '222222222222222222222222' );
 new Post_Update_Cmd_Handler();
-echo '333333333333333333333333';
+error_log( '333333333333333333333333' );
