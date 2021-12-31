@@ -12,9 +12,7 @@
 	"prefer-stable"     : true,
 	"minimum-stability" : "dev",
 	"config"            : {
-		"process-timeout"     : 0,
-		"optimize-autoloader" : true,
-		"allow-plugins"       : {
+		"allow-plugins" : {
 			"dealerdirect/phpcodesniffer-composer-installer" : true
 		}
 	},
