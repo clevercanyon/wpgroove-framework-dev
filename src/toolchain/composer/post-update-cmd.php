@@ -51,7 +51,7 @@ use Clever_Canyon\Utilities_Dev\Toolchain\Composer\{Project};
  *
  * @since 2021-12-15
  */
-use Clever_Canyon\Utilities_Dev\Toolchain\Composer\Hooks\{Post_Update_Cmd_Handler as CC_Post_Update_Cmd_Handler};
+use Clever_Canyon\Utilities_Dev\Toolchain\Composer\Hooks\{Post_Update_Cmd_Handler as Parent_Post_Update_Cmd_Handler};
 use WP_Groove\Framework_Dev\Toolchain\Composer\Hooks\{Post_Update_Cmd_Handler};
 
 // </editor-fold>
@@ -70,6 +70,7 @@ if ( ! getenv( 'COMPOSER_DEV_MODE' ) ) {
  *
  * @since 2021-12-15
  */
-require_once getcwd() . '/vendor/autoload.php';
-new CC_Post_Update_Cmd_Handler();
-new Post_Update_Cmd_Handler();
+${__FILE__}[ 'getcwd' ] = getcwd();
+require_once ${__FILE__}[ 'getcwd' ] . '/vendor/autoload.php';
+new Parent_Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+new Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );

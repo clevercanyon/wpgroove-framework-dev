@@ -41,7 +41,7 @@
 	},
 	"extra"             : {
 		"clevercanyon" : {
-			"@extends-packages" : [ "clevercanyon/php-js-utilities-dev" ],
+			"$extends-packages" : [ "clevercanyon/php-js-utilities-dev" ],
 			"&"                 : {
 				"brand"                   : {
 					"data" : {
@@ -56,10 +56,12 @@
 				},
 				"post_update_cmd_handler" : {
 					"symlink_local_packages" : {
-						"vendor" : [
-							"clevercanyon/wpgroove-framework",
-							"clevercanyon/wpgroove-framework-dev"
-						]
+						"$concat" : {
+							"vendor" : [
+								"clevercanyon/wpgroove-framework",
+								"clevercanyon/wpgroove-framework-dev"
+							]
+						}
 					}
 				}
 			}
