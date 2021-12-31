@@ -84,8 +84,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @param string|array|null $args_to_parse Optional custom args to parse instead of `$_SERVER['argv']`.
 	 *                                         If not given, defaults internally to `$_SERVER['argv']`.
 	 */
-	public function __construct( /* string|array|null */ $args_to_parse = null ) {
-		parent::__construct( 'update' );
+	public function __construct( /* string|array|null */ $args_to_parse = 'update' ) {
+		parent::__construct( $args_to_parse );
 		$this->add_commands( [ 'update' => [] ] );
 
 		if ( U\Env::var( 'COMPOSER_DEV_MODE' ) ) {
