@@ -143,10 +143,10 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * Maybe run WordPress project sub-Composer updates.
 	 *
 	 * @since 2021-12-15
-	 *
-	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_run_wp_project_sub_composer_updates() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_project() ) {
 			return; // Not applicable.
 		}
@@ -163,6 +163,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_plugin_locally() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -191,6 +193,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_theme_locally() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -219,6 +223,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_plugin_headers() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -257,6 +263,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_theme_headers() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -309,6 +317,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_svn_repo() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -358,6 +368,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_svn_repo() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -407,6 +419,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_zip() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -432,6 +446,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_zip() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -458,6 +474,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_plugin_zip() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -540,6 +558,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_theme_zip() : void {
+		U\CLI::notice( __FUNCTION__ );
+
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
