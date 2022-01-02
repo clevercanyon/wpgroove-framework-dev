@@ -145,7 +145,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @since 2021-12-15
 	 */
 	protected function maybe_run_wp_project_sub_composer_updates() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_project() ) {
 			return; // Not applicable.
@@ -163,7 +163,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_plugin_locally() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
@@ -193,7 +193,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_theme_locally() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
@@ -223,7 +223,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_plugin_headers() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
@@ -263,7 +263,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_theme_headers() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
@@ -317,25 +317,21 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_svn_repo() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
-		$plugin                           = $this->project->wp_plugin_data();
-		$plugin_svn_comp_dir_prune_config = $this->project->distro_prune_config();
-		$plugin_svn_comp_dir              = U\Dir::join( $this->project->dir, '/._x/svn-comp' );
-		$plugin_svn_repo_dir              = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
+		$plugin = $this->project->wp_plugin_data();
 
-		if ( ! U\Fs::copy( $this->project->dir, $plugin_svn_comp_dir, false, true ) ) {
+		$comp_dir_copy_config    = $this->project->comp_dir_copy_config();
+		$distro_dir_prune_config = $this->project->distro_dir_prune_config();
+
+		$plugin_svn_comp_dir = U\Dir::join( $this->project->dir, '/._x/svn-comp' );
+		$plugin_svn_repo_dir = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
+
+		if ( ! U\Fs::copy( $this->project->dir, $plugin_svn_comp_dir, $comp_dir_copy_config[ 'ignore' ], $comp_dir_copy_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to create project SVN-comp directory.' );
-		}
-
-		if ( ! U\Fs::delete( U\Dir::join( $plugin_svn_comp_dir, '/vendor' ) ) ) {
-			throw new Exception( 'Prior to running `composer update`, failed to delete project SVN-comp /vendor directory.' );
-		}
-		if ( ! U\Fs::delete( U\Dir::join( $plugin_svn_comp_dir, '/trunk/vendor' ) ) ) {
-			throw new Exception( 'Prior to running `composer update`, failed to delete project SVN-comp /trunk/vendor directory.' );
 		}
 
 		if ( 0 !== U\CLI::run( [ 'composer', 'update', '--no-dev', '--optimize-autoloader' ], $plugin_svn_comp_dir, false ) ) {
@@ -345,14 +341,14 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 			throw new Exception( 'Failed to run `composer update --no-dev --optimize-autoloader` in SVN-comp /trunk directory.' );
 		}
 
-		if ( ! U\Dir::prune( $plugin_svn_comp_dir, $plugin_svn_comp_dir_prune_config[ 'prune' ], $plugin_svn_comp_dir_prune_config[ 'prune_exceptions' ] ) ) {
+		if ( ! U\Dir::prune( $plugin_svn_comp_dir, $distro_dir_prune_config[ 'prune' ], $distro_dir_prune_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to prune project SVN-comp directory.' );
 		}
 		if ( ! U\Fs::copy( U\Dir::join( $plugin_svn_comp_dir, '/*' ), $plugin_svn_repo_dir ) ) {
 			throw new Exception( 'Failed to copy contents of pruned SVN-comp directory into SVN directory.' );
 		}
 
-		if ( ! U\Fs::copy( U\Dir::join( $plugin_svn_comp_dir, '/trunk' ), U\Dir::join( $plugin_svn_comp_dir, '/tags/' . $plugin->headers->version ), false, true ) ) {
+		if ( ! U\Fs::copy( U\Dir::join( $plugin_svn_comp_dir, '/trunk' ), U\Dir::join( $plugin_svn_comp_dir, '/tags/' . $plugin->headers->version ) ) ) {
 			throw new Exception( 'Failed to create tags/' . $plugin->headers->version . ' in project SVN-comp directory.' );
 		}
 		if ( ! U\Fs::copy( U\Dir::join( $plugin_svn_comp_dir, '/tags/' . $plugin->headers->version ), U\Dir::join( $plugin_svn_repo_dir, '/tags/' . $plugin->headers->version ) ) ) {
@@ -368,25 +364,21 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_svn_repo() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
-		$theme                           = $this->project->wp_theme_data();
-		$theme_svn_comp_dir_prune_config = $this->project->distro_prune_config();
-		$theme_svn_comp_dir              = U\Dir::join( $this->project->dir, '/._x/svn-comp' );
-		$theme_svn_repo_dir              = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
+		$theme = $this->project->wp_theme_data();
 
-		if ( ! U\Fs::copy( $this->project->dir, $theme_svn_comp_dir, false, true ) ) {
+		$comp_dir_copy_config    = $this->project->comp_dir_copy_config();
+		$distro_dir_prune_config = $this->project->distro_dir_prune_config();
+
+		$theme_svn_comp_dir = U\Dir::join( $this->project->dir, '/._x/svn-comp' );
+		$theme_svn_repo_dir = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
+
+		if ( ! U\Fs::copy( $this->project->dir, $theme_svn_comp_dir, $comp_dir_copy_config[ 'ignore' ], $comp_dir_copy_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to create project SVN-comp directory.' );
-		}
-
-		if ( ! U\Fs::delete( U\Dir::join( $theme_svn_comp_dir, '/vendor' ) ) ) {
-			throw new Exception( 'Prior to running `composer update`, failed to delete project SVN-comp /vendor directory.' );
-		}
-		if ( ! U\Fs::delete( U\Dir::join( $theme_svn_comp_dir, '/trunk/vendor' ) ) ) {
-			throw new Exception( 'Prior to running `composer update`, failed to delete project SVN-comp /trunk/vendor directory.' );
 		}
 
 		if ( 0 !== U\CLI::run( [ 'composer', 'update', '--no-dev', '--optimize-autoloader' ], $theme_svn_comp_dir, false ) ) {
@@ -396,14 +388,14 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 			throw new Exception( 'Failed to run `composer update --no-dev --optimize-autoloader` in SVN-comp /trunk directory.' );
 		}
 
-		if ( ! U\Dir::prune( $theme_svn_comp_dir, $theme_svn_comp_dir_prune_config[ 'prune' ], $theme_svn_comp_dir_prune_config[ 'prune_exceptions' ] ) ) {
+		if ( ! U\Dir::prune( $theme_svn_comp_dir, $distro_dir_prune_config[ 'prune' ], $distro_dir_prune_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to prune project SVN-comp directory.' );
 		}
 		if ( ! U\Fs::copy( U\Dir::join( $theme_svn_comp_dir, '/*' ), $theme_svn_repo_dir ) ) {
 			throw new Exception( 'Failed to copy contents of pruned SVN-comp directory into SVN directory.' );
 		}
 
-		if ( ! U\Fs::copy( U\Dir::join( $theme_svn_comp_dir, '/trunk' ), U\Dir::join( $theme_svn_comp_dir, '/tags/' . $theme->headers->version ), false, true ) ) {
+		if ( ! U\Fs::copy( U\Dir::join( $theme_svn_comp_dir, '/trunk' ), U\Dir::join( $theme_svn_comp_dir, '/tags/' . $theme->headers->version ) ) ) {
 			throw new Exception( 'Failed to create tags/' . $theme->headers->version . ' in project SVN-comp directory.' );
 		}
 		if ( ! U\Fs::copy( U\Dir::join( $theme_svn_comp_dir, '/tags/' . $theme->headers->version ), U\Dir::join( $theme_svn_repo_dir, '/tags/' . $theme->headers->version ) ) ) {
@@ -419,7 +411,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_zip() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
@@ -446,7 +438,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_zip() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
@@ -474,7 +466,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_plugin_zip() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
@@ -558,7 +550,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Version_1_0_0
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_theme_zip() : void {
-		U\CLI::notice( __FUNCTION__ );
+		U\CLI::log( ': ' . __FUNCTION__ . '()' );
 
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
