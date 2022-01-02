@@ -21,8 +21,12 @@ module.exports = {
 		'stylelint-config-prettier',
 	],
 	rules     : {
-		indentation          : 'tab',
-		'at-rule-no-unknown' : [
+		indentation                 : 'tab',
+		'no-duplicate-selectors'    : false,
+		'selector-type-no-unknown'  : false,
+		'no-descending-specificity' : false,
+		'kebab-case'                : '^([a-z][a-z0-9]*)(-{1,2}[a-z0-9]+)*$',
+		'at-rule-no-unknown'        : [
 			true,
 			{
 				ignoreAtRules : [
