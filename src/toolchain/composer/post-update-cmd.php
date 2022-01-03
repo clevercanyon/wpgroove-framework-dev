@@ -75,17 +75,42 @@ if ( ! getenv( 'COMPOSER_DEV_MODE' ) ) {
 }
 
 /**
+ * Gets current working dir.
+ *
+ * @since 2021-12-15
+ */
+${__FILE__}[ 'cwd' ] = getcwd();
+
+/**
+ * Requires autoloader.
+ *
+ * @since 2021-12-15
+ */
+require_once ${__FILE__}[ 'cwd' ] . '/vendor/autoload.php';
+
+/**
+ * Enables debugging mode.
+ *
+ * @since 2021-12-15
+ */
+U\Env::config_debugging_mode();
+
+/**
  * Handles `post-update-cmd` hook.
  *
  * @since 2021-12-15
  */
-${__FILE__}[ 'getcwd' ] = getcwd();
-require_once ${__FILE__}[ 'getcwd' ] . '/vendor/autoload.php';
-
 if ( 'update' === ( $argv[ 1 ] ?? '' ) ) {
-	new Parent_Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
-	new Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+	new Parent_Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'cwd' ] ] );
+	new Post_Update_Cmd_Handler( [ 'update', '--project-dir', ${__FILE__}[ 'cwd' ] ] );
 } else {
-	new Parent_Post_Update_Cmd_Handler( [ 'symlink', '--project-dir', ${__FILE__}[ 'getcwd' ] ] );
+	new Parent_Post_Update_Cmd_Handler( [ 'symlink', '--project-dir', ${__FILE__}[ 'cwd' ] ] );
 	U\CLI::run( [ $argv[ 0 ], 'update' ] ); // Separate process, after symlinks.
 }
+
+/**
+ * Unsets `${__FILE__}`.
+ *
+ * @since 2021-12-15
+ */
+unset( ${__FILE__} );

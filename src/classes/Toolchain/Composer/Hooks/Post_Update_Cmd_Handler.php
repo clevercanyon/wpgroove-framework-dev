@@ -89,8 +89,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 		$this->add_commands( [
 			'update' => [
 				'callback'    => [ $this, 'update' ],
-				'synopsis'    => 'Updates project symlinks, headers, SVN repos, and zip files.',
-				'description' => 'Updates project symlinks, headers, SVN repos, and zip files. See ' . __CLASS__ . '::update()',
+				'synopsis'    => 'Updates project dependencies, symlinks, headers, SVN repos, and zip files.',
+				'description' => 'Updates project dependencies, symlinks, headers, SVN repos, and zip files. See ' . __CLASS__ . '::update()',
 				'options'     => [
 					'project-dir' => [
 						'optional'    => true,
@@ -101,10 +101,7 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 				],
 			],
 		] );
-		if ( U\Env::var( 'COMPOSER_DEV_MODE' ) ) {
-			U\Env::config_debugging_mode();
-			$this->route_request();
-		}
+		$this->route_request();
 	}
 
 	/**
@@ -114,7 +111,9 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 */
 	protected function update() : void {
 		try {
-			$this->project = new Project( $this->get_option( 'project-dir' ) );
+			$this->project = new Project(
+				$this->get_option( 'project-dir' )
+			);
 			$this->maybe_run_wp_project_sub_composer_updates();
 
 			$this->maybe_symlink_wp_plugin_locally();
@@ -145,8 +144,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @since 2021-12-15
 	 */
 	protected function maybe_run_wp_project_sub_composer_updates() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_project() ) {
 			return; // Not applicable.
 		}
@@ -163,8 +160,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_plugin_locally() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -193,8 +188,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_symlink_wp_theme_locally() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -223,8 +216,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_plugin_headers() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -263,8 +254,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_sync_wp_theme_headers() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -317,8 +306,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_svn_repo() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -331,25 +318,27 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 		$plugin_svn_distro_dir = U\Dir::join( $this->project->dir, '/._x/svn-distro' );
 		$plugin_svn_repo_dir   = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
 
+		// Regarding use of `--no-plugins` in Composer calls below.
+		// {@see https://github.com/humbug/php-scoper#composer-plugins}.
+
 		if ( ! U\Fs::copy( $this->project->dir, $plugin_svn_comp_dir, $comp_dir_copy_config[ 'ignore' ], $comp_dir_copy_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to create project /._x/svn-comp directory.' );
 		}
-
-		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--optimize-autoloader' ], $plugin_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer install --no-dev --optimize-autoloader` in ./._x/svn-comp directory.' );
-		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--optimize-autoloader' ], U\Dir::join( $plugin_svn_comp_dir, '/trunk' ), false ) ) {
-			throw new Exception( 'Failed to run `composer install --no-dev --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
+		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--no-scripts', '--no-plugins', '--optimize-autoloader' ], U\Dir::join( $plugin_svn_comp_dir, '/trunk' ), false ) ) {
+			throw new Exception( 'Failed to run `composer install --no-dev --no-scripts --no-plugins --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
 		}
 
-		if ( 0 !== U\CLI::run( [ 'composer', 'exec', 'php-scoper', 'add-prefix', '--no-config', '--no-interaction', '--force', '--output-dir', $plugin_svn_distro_dir ], $plugin_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer exec php-scoper add-prefix --no-config --no-interaction --force --output-dir ' . $plugin_svn_distro_dir . '` in ./._x/svn-comp directory.' );
+		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--prefix', $this->project->name_hash, '--no-config', '--no-interaction', '--force', '--output-dir', $plugin_svn_distro_dir ], $plugin_svn_comp_dir, false ) ) {
+			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --prefix ' . $this->project->name_hash . ' --no-config --no-interaction --force --output-dir ' . $plugin_svn_distro_dir . '` in ./._x/svn-comp directory.' );
 		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--optimize-autoloader' ], $plugin_svn_distro_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --optimize-autoloader` in ./._x/svn-distro directory.' );
+		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--no-scripts', '--no-plugins', '--optimize' ], U\Dir::join( $plugin_svn_distro_dir, '/trunk' ), false ) ) {
+			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --no-scripts --no-plugins --optimize` in ./._x/svn-distro/trunk directory.' );
 		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--optimize-autoloader' ], U\Dir::join( $plugin_svn_distro_dir, '/trunk' ), false ) ) {
-			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --optimize-autoloader` in ./._x/svn-distro/trunk directory.' );
+		if ( false === ( $_svn_distro_dir_trunk_plugin_file_contents = file_get_contents( U\Dir::join( $plugin_svn_distro_dir, '/trunk/plugin.php' ) ) ) ) {
+			throw new Exception( 'Failed to read contents of ./._x/svn-distro/trunk/plugin.php.' );
+		}
+		if ( false === file_put_contents( U\Dir::join( $plugin_svn_distro_dir, '/trunk/plugin.php' ), str_replace( '/vendor/autoload.php', '/vendor/scoper-autoload.php', $_svn_distro_dir_trunk_plugin_file_contents ) ) ) {
+			throw new Exception( 'Failed to update `/vendor/autoload.php` to `/vendor/scoper-autoload.php` in ./._x/svn-comp/trunk/plugin.php.' );
 		}
 
 		if ( ! U\Dir::prune( $plugin_svn_distro_dir, $distro_dir_prune_config[ 'prune' ], $distro_dir_prune_config[ 'exceptions' ] ) ) {
@@ -375,8 +364,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_svn_repo() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -389,25 +376,27 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 		$theme_svn_distro_dir = U\Dir::join( $this->project->dir, '/._x/svn-distro' );
 		$theme_svn_repo_dir   = U\Dir::join( $this->project->dir, '/._x/svn-repo' );
 
+		// Regarding use of `--no-plugins` in Composer calls below.
+		// {@see https://github.com/humbug/php-scoper#composer-plugins}.
+
 		if ( ! U\Fs::copy( $this->project->dir, $theme_svn_comp_dir, $comp_dir_copy_config[ 'ignore' ], $comp_dir_copy_config[ 'exceptions' ] ) ) {
 			throw new Exception( 'Failed to create project /._x/svn-comp directory.' );
 		}
-
-		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--optimize-autoloader' ], $theme_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer install --no-dev --optimize-autoloader` in ./._x/svn-comp directory.' );
-		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--optimize-autoloader' ], U\Dir::join( $theme_svn_comp_dir, '/trunk' ), false ) ) {
-			throw new Exception( 'Failed to run `composer install --no-dev --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
+		if ( 0 !== U\CLI::run( [ 'composer', 'install', '--no-dev', '--no-scripts', '--no-plugins', '--optimize-autoloader' ], U\Dir::join( $theme_svn_comp_dir, '/trunk' ), false ) ) {
+			throw new Exception( 'Failed to run `composer install --no-dev --no-scripts --no-plugins --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
 		}
 
-		if ( 0 !== U\CLI::run( [ 'composer', 'exec', 'php-scoper', 'add-prefix', '--no-config', '--no-interaction', '--force', '--output-dir', $theme_svn_distro_dir ], $theme_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer exec php-scoper add-prefix --no-config --no-interaction --force --output-dir ' . $theme_svn_distro_dir . '` in ./._x/svn-comp directory.' );
+		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--prefix', $this->project->name_hash, '--no-config', '--no-interaction', '--force', '--output-dir', $theme_svn_distro_dir ], $theme_svn_comp_dir, false ) ) {
+			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --prefix ' . $this->project->name_hash . ' --no-config --no-interaction --force --output-dir ' . $theme_svn_distro_dir . '` in ./._x/svn-comp directory.' );
 		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--optimize-autoloader' ], $theme_svn_distro_dir, false ) ) {
-			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --optimize-autoloader` in ./._x/svn-distro directory.' );
+		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--no-scripts', '--no-plugins', '--optimize' ], U\Dir::join( $theme_svn_distro_dir, '/trunk' ), false ) ) {
+			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --no-scripts --no-plugins --optimize` in ./._x/svn-distro/trunk directory.' );
 		}
-		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--optimize-autoloader' ], U\Dir::join( $theme_svn_distro_dir, '/trunk' ), false ) ) {
-			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --optimize-autoloader` in ./._x/svn-distro/trunk directory.' );
+		if ( false === ( $_svn_distro_dir_trunk_theme_file_contents = file_get_contents( U\Dir::join( $theme_svn_distro_dir, '/trunk/theme.php' ) ) ) ) {
+			throw new Exception( 'Failed to read contents of ./._x/svn-distro/trunk/theme.php.' );
+		}
+		if ( false === file_put_contents( U\Dir::join( $theme_svn_distro_dir, '/trunk/theme.php' ), str_replace( '/vendor/autoload.php', '/vendor/scoper-autoload.php', $_svn_distro_dir_trunk_theme_file_contents ) ) ) {
+			throw new Exception( 'Failed to update `/vendor/autoload.php` to `/vendor/scoper-autoload.php` in ./._x/svn-comp/trunk/theme.php.' );
 		}
 
 		if ( ! U\Dir::prune( $theme_svn_distro_dir, $distro_dir_prune_config[ 'prune' ], $distro_dir_prune_config[ 'exceptions' ] ) ) {
@@ -433,8 +422,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_plugin_zip() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -466,8 +453,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws Exception Whenever any failure occurs.
 	 */
 	protected function maybe_compile_wp_theme_zip() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
@@ -500,8 +485,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_plugin_zip() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_plugin() ) {
 			return; // Not applicable.
 		}
@@ -584,8 +567,6 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 	 * @throws \Throwable On some failures.
 	 */
 	protected function maybe_s3_upload_wp_theme_zip() : void {
-		U\CLI::log( ': ' . __FUNCTION__ . '()' );
-
 		if ( ! $this->project->is_wp_theme() ) {
 			return; // Not applicable.
 		}
