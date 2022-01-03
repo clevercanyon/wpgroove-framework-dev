@@ -328,8 +328,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 			throw new Exception( 'Failed to run `composer install --no-dev --no-scripts --no-plugins --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
 		}
 
-		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--prefix', $this->project->name_hash, '--no-config', '--no-interaction', '--force', '--output-dir', $plugin_svn_distro_dir ], $plugin_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --prefix ' . $this->project->name_hash . ' --no-config --no-interaction --force --output-dir ' . $plugin_svn_distro_dir . '` in ./._x/svn-comp directory.' );
+		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--config', U\Dir::join( $plugin_svn_comp_dir, '/.scoper.php' ), '--prefix', $this->project->name_hash, '--no-interaction', '--force', '--output-dir', $plugin_svn_distro_dir ], $plugin_svn_comp_dir, false ) ) {
+			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --config ' . U\Dir::join( $plugin_svn_comp_dir, '/.scoper.php' ) . ' --prefix ' . $this->project->name_hash . ' --no-interaction --force --output-dir ' . $plugin_svn_distro_dir . '` in ./._x/svn-comp directory.' );
 		}
 		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--no-scripts', '--no-plugins', '--optimize' ], U\Dir::join( $plugin_svn_distro_dir, '/trunk' ), false ) ) {
 			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --no-scripts --no-plugins --optimize` in ./._x/svn-distro/trunk directory.' );
@@ -386,8 +386,8 @@ class Post_Update_Cmd_Handler extends \Clever_Canyon\Utilities\OOP\Abstracts\A6t
 			throw new Exception( 'Failed to run `composer install --no-dev --no-scripts --no-plugins --optimize-autoloader` in ./._x/svn-comp/trunk directory.' );
 		}
 
-		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--prefix', $this->project->name_hash, '--no-config', '--no-interaction', '--force', '--output-dir', $theme_svn_distro_dir ], $theme_svn_comp_dir, false ) ) {
-			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --prefix ' . $this->project->name_hash . ' --no-config --no-interaction --force --output-dir ' . $theme_svn_distro_dir . '` in ./._x/svn-comp directory.' );
+		if ( 0 !== U\CLI::run( [ '../../vendor/bin/php-scoper', 'add-prefix', '--config', U\Dir::join( $theme_svn_comp_dir, '/.scoper.php' ), '--prefix', $this->project->name_hash, '--no-interaction', '--force', '--output-dir', $theme_svn_distro_dir ], $theme_svn_comp_dir, false ) ) {
+			throw new Exception( 'Failed to run `../../vendor/bin/php-scoper add-prefix --config ' . U\Dir::join( $theme_svn_comp_dir, '/.scoper.php' ) . ' --prefix ' . $this->project->name_hash . ' --no-interaction --force --output-dir ' . $theme_svn_distro_dir . '` in ./._x/svn-comp directory.' );
 		}
 		if ( 0 !== U\CLI::run( [ 'composer', 'dump-autoload', '--no-dev', '--no-scripts', '--no-plugins', '--optimize' ], U\Dir::join( $theme_svn_distro_dir, '/trunk' ), false ) ) {
 			throw new Exception( 'Failed to run `composer dump-autoload --no-dev --no-scripts --no-plugins --optimize` in ./._x/svn-distro/trunk directory.' );
