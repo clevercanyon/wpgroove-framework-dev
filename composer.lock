@@ -459,12 +459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/wpgroove-framework.git",
-                "reference": "bb6f3ce7b22ca5843b98bb67473cfd092c0bbc66"
+                "reference": "f69f1249fbe6ccc626fd25d4869b712a74ef5dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/wpgroove-framework/zipball/bb6f3ce7b22ca5843b98bb67473cfd092c0bbc66",
-                "reference": "bb6f3ce7b22ca5843b98bb67473cfd092c0bbc66",
+                "url": "https://api.github.com/repos/clevercanyon/wpgroove-framework/zipball/f69f1249fbe6ccc626fd25d4869b712a74ef5dba",
+                "reference": "f69f1249fbe6ccc626fd25d4869b712a74ef5dba",
                 "shasum": ""
             },
             "require": {
@@ -503,7 +503,7 @@
                 "issues": "https://github.com/clevercanyon/wpgroove-framework/issues",
                 "source": "https://github.com/clevercanyon/wpgroove-framework/tree/main"
             },
-            "time": "2022-01-02T14:17:30+00:00"
+            "time": "2022-01-03T04:36:09+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
