@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6fb3c2e9c57438542633cd589a2f6d12",
+    "content-hash": "bd99f42eb2bcff3e867bc10f5abd494c",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.208.7",
+            "version": "3.208.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "41a800dd7cf5c4ac0ef9bf8db01e838ab6a3698c"
+                "reference": "1fe99375c5a9012d8f99dbbe59fff8e7131a9703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/41a800dd7cf5c4ac0ef9bf8db01e838ab6a3698c",
-                "reference": "41a800dd7cf5c4ac0ef9bf8db01e838ab6a3698c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1fe99375c5a9012d8f99dbbe59fff8e7131a9703",
+                "reference": "1fe99375c5a9012d8f99dbbe59fff8e7131a9703",
                 "shasum": ""
             },
             "require": {
@@ -143,9 +143,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.208.7"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.208.8"
             },
-            "time": "2021-12-21T19:16:39+00:00"
+            "time": "2022-01-03T19:22:28+00:00"
         },
         {
             "name": "clevercanyon/php-chalk",
@@ -153,29 +153,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-chalk.git",
-                "reference": "4566e44ec04a6238c68e9082d3020734b6165e97"
+                "reference": "b4ec1ca9c80cb063fcf4baea7f894efd31b03cbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-chalk/zipball/4566e44ec04a6238c68e9082d3020734b6165e97",
-                "reference": "4566e44ec04a6238c68e9082d3020734b6165e97",
+                "url": "https://api.github.com/repos/clevercanyon/php-chalk/zipball/b4ec1ca9c80cb063fcf4baea7f894efd31b03cbf",
+                "reference": "b4ec1ca9c80cb063fcf4baea7f894efd31b03cbf",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4 || ^8.0 || ^8.1"
-            },
-            "require-dev": {
-                "clevercanyon/php-js-utilities-dev": "dev-main"
+                "php-64bit": "^7.4 || ^8.0 || ^8.1"
             },
             "default-branch": true,
             "type": "library",
-            "extra": {
-                "clevercanyon": {
-                    "$extends-packages": [
-                        "clevercanyon/php-js-utilities-dev"
-                    ]
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Clever_Canyon\\Chalk\\": "./src/classes"
@@ -203,7 +193,7 @@
                 "issues": "https://github.com/clevercanyon/php-chalk/issues",
                 "source": "https://github.com/clevercanyon/php-chalk/tree/main"
             },
-            "time": "2022-01-02T14:16:11+00:00"
+            "time": "2022-01-04T00:34:22+00:00"
         },
         {
             "name": "clevercanyon/php-js-standards",
@@ -211,39 +201,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-standards.git",
-                "reference": "5d9f524578edd778a87d7be9b46751a5030fba77"
+                "reference": "e4efda9668a9d8741dbffd8a8605220350ec9664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/5d9f524578edd778a87d7be9b46751a5030fba77",
-                "reference": "5d9f524578edd778a87d7be9b46751a5030fba77",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/e4efda9668a9d8741dbffd8a8605220350ec9664",
+                "reference": "e4efda9668a9d8741dbffd8a8605220350ec9664",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-                "php": "^7.4 || ^8.0 || ^8.1",
                 "phpcompatibility/php-compatibility": "^9.3",
                 "phpcompatibility/phpcompatibility-wp": "^2.1",
                 "squizlabs/php_codesniffer": "^3.6",
                 "wp-coding-standards/wpcs": "^2.3"
             },
-            "require-dev": {
-                "clevercanyon/php-js-utilities-dev": "dev-main"
-            },
             "default-branch": true,
             "type": "phpcodesniffer-standard",
-            "extra": {
-                "clevercanyon": {
-                    "$extends-packages": [
-                        "clevercanyon/php-js-utilities-dev"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Clever_Canyon\\Standards\\": "./src/classes"
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -255,12 +229,12 @@
                     "role": "organization"
                 }
             ],
-            "description": "Intended for internal company use only. CLEVER CANYON's standards are for PHP/JS development.",
+            "description": "CLEVER CANYON’s coding standards for PHP/JS.",
             "support": {
                 "issues": "https://github.com/clevercanyon/php-js-standards/issues",
                 "source": "https://github.com/clevercanyon/php-js-standards/tree/main"
             },
-            "time": "2022-01-02T14:16:27+00:00"
+            "time": "2022-01-04T00:35:19+00:00"
         },
         {
             "name": "clevercanyon/php-js-utilities",
@@ -410,31 +384,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-utilities-dev-npm.git",
-                "reference": "265b3f826c182a744d8d5209b7d5ff7c7e728091"
+                "reference": "0c99148b7b502d2e85f000f34db7f0720d4128a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/265b3f826c182a744d8d5209b7d5ff7c7e728091",
-                "reference": "265b3f826c182a744d8d5209b7d5ff7c7e728091",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/0c99148b7b502d2e85f000f34db7f0720d4128a2",
+                "reference": "0c99148b7b502d2e85f000f34db7f0720d4128a2",
                 "shasum": ""
-            },
-            "require": {
-                "clevercanyon/php-js-utilities-dev": "dev-main"
             },
             "default-branch": true,
             "type": "library",
-            "extra": {
-                "clevercanyon": {
-                    "$extends-packages": [
-                        "clevercanyon/php-js-utilities-dev"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Clever_Canyon\\Utilities_Dev_NPM\\": "./src/classes"
-                }
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
@@ -446,64 +405,12 @@
                     "role": "organization"
                 }
             ],
-            "description": "Intended for internal company use only. CLEVER CANYON's dev utilities are for PHP/JS development.",
+            "description": "CLEVER CANYON’s utilities for PHP/JS (NPM dev dependencies).",
             "support": {
                 "issues": "https://github.com/clevercanyon/php-js-utilities-dev-npm/issues",
                 "source": "https://github.com/clevercanyon/php-js-utilities-dev-npm/tree/main"
             },
-            "time": "2022-01-02T14:17:16+00:00"
-        },
-        {
-            "name": "clevercanyon/wpgroove-framework",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clevercanyon/wpgroove-framework.git",
-                "reference": "f69f1249fbe6ccc626fd25d4869b712a74ef5dba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/wpgroove-framework/zipball/f69f1249fbe6ccc626fd25d4869b712a74ef5dba",
-                "reference": "f69f1249fbe6ccc626fd25d4869b712a74ef5dba",
-                "shasum": ""
-            },
-            "require": {
-                "clevercanyon/php-js-utilities": "dev-main"
-            },
-            "require-dev": {
-                "clevercanyon/wpgroove-framework-dev": "dev-main"
-            },
-            "default-branch": true,
-            "type": "library",
-            "extra": {
-                "clevercanyon": {
-                    "$extends-packages": [
-                        "clevercanyon/wpgroove-framework-dev"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "WP_Groove\\Framework\\": "./src/classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "WP Groove",
-                    "homepage": "https://wpgroove.com",
-                    "role": "organization"
-                }
-            ],
-            "description": "Intended for internal company use only. WP Groove's framework is for WordPress development.",
-            "support": {
-                "issues": "https://github.com/clevercanyon/wpgroove-framework/issues",
-                "source": "https://github.com/clevercanyon/wpgroove-framework/tree/main"
-            },
-            "time": "2022-01-03T04:36:09+00:00"
+            "time": "2022-01-04T00:37:07+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -1114,12 +1021,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/humbug/php-scoper.git",
-                "reference": "78b51375cbc40d920f07432d180ef2518ea03247"
+                "reference": "f38f22665f55e09ebf023e2849507bc323b0777f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/humbug/php-scoper/zipball/78b51375cbc40d920f07432d180ef2518ea03247",
-                "reference": "78b51375cbc40d920f07432d180ef2518ea03247",
+                "url": "https://api.github.com/repos/humbug/php-scoper/zipball/f38f22665f55e09ebf023e2849507bc323b0777f",
+                "reference": "f38f22665f55e09ebf023e2849507bc323b0777f",
                 "shasum": ""
             },
             "require": {
@@ -1191,7 +1098,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-02T15:11:55+00:00"
+            "time": "2022-01-03T09:49:41+00:00"
         },
         {
             "name": "jetbrains/phpstorm-stubs",
@@ -5175,9 +5082,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "clevercanyon/php-js-utilities": 20,
-        "clevercanyon/php-js-utilities-dev": 20,
-        "clevercanyon/wpgroove-framework": 20
+        "clevercanyon/php-js-utilities-dev": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

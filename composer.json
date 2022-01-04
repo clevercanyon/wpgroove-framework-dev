@@ -1,7 +1,7 @@
 {
 	"license"           : "GPL-2.0-or-later",
 	"name"              : "clevercanyon/wpgroove-framework-dev",
-	"description"       : "Intended for internal company use only. WP Groove's dev framework is for WordPress development.",
+	"description"       : "WP Groove’s framework for WordPress (dev dependencies).",
 	"authors"           : [
 		{
 			"name"     : "WP Groove",
@@ -13,59 +13,11 @@
 	"minimum-stability" : "dev",
 	"config"            : {
 		"allow-plugins" : {
-			"dealerdirect/phpcodesniffer-composer-installer": true,
-			"composer/package-versions-deprecated": true
+			"dealerdirect/phpcodesniffer-composer-installer" : true,
+			"composer/package-versions-deprecated"           : true
 		}
 	},
 	"require"           : {
-		"clevercanyon/php-js-utilities"     : "dev-main",
-		"clevercanyon/php-js-utilities-dev" : "dev-main",
-		"clevercanyon/wpgroove-framework"   : "dev-main"
-	},
-	"autoload"          : {
-		"psr-4" : {
-			"WP_Groove\\Framework_Dev\\" : "./src/classes"
-		}
-	},
-	"autoload-dev"      : {
-		"psr-4" : {
-			"WP_Groove\\Framework_Dev__Tests\\" : "./tests/classes"
-		}
-	},
-	"scripts"           : {
-		"post-update-cmd"   : [
-			"[ $COMPOSER_DEV_MODE -eq 0 ] || ./src/toolchain/composer/post-update-cmd.php"
-		],
-		"run-project-tests" : [
-			"./vendor/bin/phpunit --configuration ./.phpunit.xml --testsuite tests"
-		]
-	},
-	"extra"             : {
-		"clevercanyon" : {
-			"$extends-packages" : [ "clevercanyon/php-js-utilities-dev" ],
-			"&"                 : {
-				"brand"                   : {
-					"data" : {
-						"slug" : "wpgroove"
-					},
-					"aws"  : {
-						"s3" : {
-							"bucket"     : "wpgroove",
-							"cdn_domain" : "cdn.wpgroove.com"
-						}
-					}
-				},
-				"post_update_cmd_handler" : {
-					"symlink_local_packages" : {
-						"$concat" : {
-							"vendor" : [
-								"clevercanyon/wpgroove-framework",
-								"clevercanyon/wpgroove-framework-dev"
-							]
-						}
-					}
-				}
-			}
-		}
+		"clevercanyon/php-js-utilities-dev" : "dev-main"
 	}
 }

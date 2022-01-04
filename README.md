@@ -1,3 +1,3 @@
-# WordPress Dev Framework
+# WP Groove: WordPress Framework (Dev Dependencies)
 
-Intended for internal company use only. WP Groove's dev framework is for WordPress development.
+WP Groove’s framework for WordPress (dev dependencies).
