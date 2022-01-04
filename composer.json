@@ -18,6 +18,7 @@
 		}
 	},
 	"require"           : {
-		"clevercanyon/php-js-utilities-dev" : "dev-main"
+		"clevercanyon/php-js-utilities-dev" : "dev-main",
+		"varunsridharan/wp-cli-textdomain"  : "^1.4"
 	}
 }
