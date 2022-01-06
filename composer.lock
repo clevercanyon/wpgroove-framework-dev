@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad7dd99eef24c588fcbaddb35828a282",
+    "content-hash": "a616f8174f175b47f78e50e5e4a81e50",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.208.10",
+            "version": "3.209.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a7802ac9289e0c4de2c76cfe0ea0f11f72955754"
+                "reference": "34afa064da0bf2816640b91b7e376ee781cded42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a7802ac9289e0c4de2c76cfe0ea0f11f72955754",
-                "reference": "a7802ac9289e0c4de2c76cfe0ea0f11f72955754",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/34afa064da0bf2816640b91b7e376ee781cded42",
+                "reference": "34afa064da0bf2816640b91b7e376ee781cded42",
                 "shasum": ""
             },
             "require": {
@@ -143,9 +143,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.208.10"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.0"
             },
-            "time": "2022-01-05T19:19:54+00:00"
+            "time": "2022-01-06T19:13:57+00:00"
         },
         {
             "name": "clevercanyon/php-js-standards",
@@ -240,12 +240,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-utilities-dev-npm.git",
-                "reference": "0c99148b7b502d2e85f000f34db7f0720d4128a2"
+                "reference": "a6b13ed5886aecba584f63b6c06f7a8c9db9b981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/0c99148b7b502d2e85f000f34db7f0720d4128a2",
-                "reference": "0c99148b7b502d2e85f000f34db7f0720d4128a2",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/a6b13ed5886aecba584f63b6c06f7a8c9db9b981",
+                "reference": "a6b13ed5886aecba584f63b6c06f7a8c9db9b981",
                 "shasum": ""
             },
             "default-branch": true,
@@ -266,7 +266,7 @@
                 "issues": "https://github.com/clevercanyon/php-js-utilities-dev-npm/issues",
                 "source": "https://github.com/clevercanyon/php-js-utilities-dev-npm/tree/main"
             },
-            "time": "2022-01-04T00:37:07+00:00"
+            "time": "2022-01-06T12:09:20+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -5095,27 +5095,22 @@
         },
         {
             "name": "varunsridharan/wp-cli-textdomain",
-            "version": "1.4",
+            "version": "1.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/varunsridharan/wp-cli-textdomain.git",
-                "reference": "23f1eade6dc4fa18caf4534780804bd9cda05f4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/wp-cli-textdomain/zipball/23f1eade6dc4fa18caf4534780804bd9cda05f4b",
-                "reference": "23f1eade6dc4fa18caf4534780804bd9cda05f4b",
-                "shasum": ""
+                "url": "https://github.com/clevercanyon/wp-cli-textdomain",
+                "reference": "2676d2fff3d8859deef6b11e7a044be96118e3c6"
             },
             "require": {
                 "wp-cli/i18n-command": ">=1"
             },
             "bin": [
+                "bin/add-textdomain",
                 "bin/add-textdomain.bat",
+                "bin/makepot",
                 "bin/makepot.bat"
             ],
             "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-or-later"
             ],
@@ -5131,10 +5126,9 @@
             "homepage": "https://github.com/varunsridharan/wp-cli-text-domain/",
             "support": {
                 "email": "varunsridharan23@gmail.com",
-                "issues": "https://github.com/varunsridharan/wp-cli-text-domain/issues",
-                "source": "https://github.com/varunsridharan/wp-cli-textdomain/tree/master"
+                "issues": "https://github.com/varunsridharan/wp-cli-text-domain/issues"
             },
-            "time": "2019-07-10T10:43:56+00:00"
+            "time": "2022-01-06T22:17:19+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -5196,16 +5190,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.2.10",
+            "version": "v2.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "e9eef8aab4b5e43c3aa09bf60e1e7a9d6d30d302"
+                "reference": "2688b3626440d952eeb10b43a483e151d8faf51b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/e9eef8aab4b5e43c3aa09bf60e1e7a9d6d30d302",
-                "reference": "e9eef8aab4b5e43c3aa09bf60e1e7a9d6d30d302",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/2688b3626440d952eeb10b43a483e151d8faf51b",
+                "reference": "2688b3626440d952eeb10b43a483e151d8faf51b",
                 "shasum": ""
             },
             "require": {
@@ -5254,9 +5248,9 @@
             "homepage": "https://github.com/wp-cli/i18n-command",
             "support": {
                 "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.10"
+                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.11"
             },
-            "time": "2021-12-03T22:10:38+00:00"
+            "time": "2022-01-06T00:01:01+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",

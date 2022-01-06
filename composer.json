@@ -19,6 +19,12 @@
 	},
 	"require"           : {
 		"clevercanyon/php-js-utilities-dev" : "dev-main",
-		"varunsridharan/wp-cli-textdomain"  : "^1.4"
-	}
+		"varunsridharan/wp-cli-textdomain"  : "^1.5"
+	},
+	"repositories"      : [
+		{
+			"type" : "git",
+			"url"  : "https://github.com/clevercanyon/wp-cli-textdomain"
+		}
+	]
 }
