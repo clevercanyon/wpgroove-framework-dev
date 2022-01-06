@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d160402203f8cf58e932659938de3dea",
+    "content-hash": "bd676ac8b71f495bfa042a21f861c4d5",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -5095,7 +5095,7 @@
         },
         {
             "name": "varunsridharan/wp-cli-textdomain",
-            "version": "1.5",
+            "version": "dev-clevercanyon",
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/wp-cli-textdomain",
@@ -5104,6 +5104,7 @@
             "require": {
                 "wp-cli/i18n-command": ">=1"
             },
+            "default-branch": true,
             "bin": [
                 "bin/add-textdomain",
                 "bin/add-textdomain.bat",
@@ -5484,7 +5485,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "clevercanyon/php-js-utilities-dev": 20
+        "clevercanyon/php-js-utilities-dev": 20,
+        "varunsridharan/wp-cli-textdomain": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
