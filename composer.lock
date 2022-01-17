@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-standards.git",
-                "reference": "4952bc9076a5d138e6acb34bff40261328428856"
+                "reference": "1d8842676a231f714a59664b238ad4b26398e436"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/4952bc9076a5d138e6acb34bff40261328428856",
-                "reference": "4952bc9076a5d138e6acb34bff40261328428856",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/1d8842676a231f714a59664b238ad4b26398e436",
+                "reference": "1d8842676a231f714a59664b238ad4b26398e436",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "issues": "https://github.com/clevercanyon/php-js-standards/issues",
                 "source": "https://github.com/clevercanyon/php-js-standards/tree/main"
             },
-            "time": "2022-01-17T03:19:47+00:00"
+            "time": "2022-01-17T14:57:43+00:00"
         },
         {
             "name": "clevercanyon/php-js-utilities-dev",
@@ -194,12 +194,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-utilities-dev.git",
-                "reference": "d812cb20b3a2913c921de98fcf05a599bb436163"
+                "reference": "c7643d137e72e828309e1716a63415effd9ceeab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev/zipball/d812cb20b3a2913c921de98fcf05a599bb436163",
-                "reference": "d812cb20b3a2913c921de98fcf05a599bb436163",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev/zipball/c7643d137e72e828309e1716a63415effd9ceeab",
+                "reference": "c7643d137e72e828309e1716a63415effd9ceeab",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
                 "issues": "https://github.com/clevercanyon/php-js-utilities-dev/issues",
                 "source": "https://github.com/clevercanyon/php-js-utilities-dev/tree/main"
             },
-            "time": "2022-01-17T03:20:34+00:00"
+            "time": "2022-01-17T14:57:54+00:00"
         },
         {
             "name": "clevercanyon/php-js-utilities-dev-npm",
@@ -242,12 +242,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-utilities-dev-npm.git",
-                "reference": "a6b13ed5886aecba584f63b6c06f7a8c9db9b981"
+                "reference": "0a1252d9bc3824873a79728d1fbb34504fd72dc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/a6b13ed5886aecba584f63b6c06f7a8c9db9b981",
-                "reference": "a6b13ed5886aecba584f63b6c06f7a8c9db9b981",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/0a1252d9bc3824873a79728d1fbb34504fd72dc6",
+                "reference": "0a1252d9bc3824873a79728d1fbb34504fd72dc6",
                 "shasum": ""
             },
             "default-branch": true,
@@ -268,7 +268,7 @@
                 "issues": "https://github.com/clevercanyon/php-js-utilities-dev-npm/issues",
                 "source": "https://github.com/clevercanyon/php-js-utilities-dev-npm/tree/main"
             },
-            "time": "2022-01-06T12:09:20+00:00"
+            "time": "2022-01-17T14:56:28+00:00"
         },
         {
             "name": "clevercanyon/php-scoper",
@@ -359,16 +359,16 @@
         },
         {
             "name": "composer/package-versions-deprecated",
-            "version": "1.11.99.4",
+            "version": "1.11.99.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/package-versions-deprecated.git",
-                "reference": "b174585d1fe49ceed21928a945138948cb394600"
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b174585d1fe49ceed21928a945138948cb394600",
-                "reference": "b174585d1fe49ceed21928a945138948cb394600",
+                "url": "https://api.github.com/repos/composer/package-versions-deprecated/zipball/b4f54f74ef3453349c24a845d22392cd31e65f1d",
+                "reference": "b4f54f74ef3453349c24a845d22392cd31e65f1d",
                 "shasum": ""
             },
             "require": {
@@ -412,7 +412,7 @@
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
             "support": {
                 "issues": "https://github.com/composer/package-versions-deprecated/issues",
-                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.4"
+                "source": "https://github.com/composer/package-versions-deprecated/tree/1.11.99.5"
             },
             "funding": [
                 {
@@ -428,7 +428,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T08:41:34+00:00"
+            "time": "2022-01-17T14:14:24+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
