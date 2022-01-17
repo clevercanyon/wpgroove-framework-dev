@@ -153,12 +153,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clevercanyon/php-js-standards.git",
-                "reference": "915c30af832ac44d25294362b57676ed0184bda7"
+                "reference": "4952bc9076a5d138e6acb34bff40261328428856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/915c30af832ac44d25294362b57676ed0184bda7",
-                "reference": "915c30af832ac44d25294362b57676ed0184bda7",
+                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/4952bc9076a5d138e6acb34bff40261328428856",
+                "reference": "4952bc9076a5d138e6acb34bff40261328428856",
                 "shasum": ""
             },
             "require": {
@@ -186,7 +186,7 @@
                 "issues": "https://github.com/clevercanyon/php-js-standards/issues",
                 "source": "https://github.com/clevercanyon/php-js-standards/tree/main"
             },
-            "time": "2022-01-06T12:08:24+00:00"
+            "time": "2022-01-17T03:19:47+00:00"
         },
         {
             "name": "clevercanyon/php-js-utilities-dev",
