@@ -18,6 +18,6 @@
 		}
 	},
 	"require"           : {
-		"clevercanyon/php-js-utilities-dev" : "dev-main"
+		"clevercanyon/utilities-dev" : "dev-main"
 	}
 }

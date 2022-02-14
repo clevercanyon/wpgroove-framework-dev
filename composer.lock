@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd99f42eb2bcff3e867bc10f5abd494c",
+    "content-hash": "e9a9145c31016ad1525e92379a9058a1",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.209.10",
+            "version": "3.209.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "45082e9fac26bdbc5db504639373374084f616d3"
+                "reference": "6082f5df05e5c725a44a310649a922b32bbeec54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/45082e9fac26bdbc5db504639373374084f616d3",
-                "reference": "45082e9fac26bdbc5db504639373374084f616d3",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6082f5df05e5c725a44a310649a922b32bbeec54",
+                "reference": "6082f5df05e5c725a44a310649a922b32bbeec54",
                 "shasum": ""
             },
             "require": {
@@ -111,12 +111,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Aws\\": "src/"
-                },
                 "files": [
                     "src/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Aws\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -143,22 +143,22 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.10"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.209.23"
             },
-            "time": "2022-01-21T19:18:51+00:00"
+            "time": "2022-02-11T19:13:32+00:00"
         },
         {
-            "name": "clevercanyon/php-js-standards",
+            "name": "clevercanyon/standards",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/clevercanyon/php-js-standards.git",
-                "reference": "99ce3618c1d536ace7eeb08c5256324aa98f9512"
+                "url": "https://github.com/clevercanyon/standards.git",
+                "reference": "5d7afe064e8492712760dc162c6b4db10cb6cebc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-standards/zipball/99ce3618c1d536ace7eeb08c5256324aa98f9512",
-                "reference": "99ce3618c1d536ace7eeb08c5256324aa98f9512",
+                "url": "https://api.github.com/repos/clevercanyon/standards/zipball/5d7afe064e8492712760dc162c6b4db10cb6cebc",
+                "reference": "5d7afe064e8492712760dc162c6b4db10cb6cebc",
                 "shasum": ""
             },
             "require": {
@@ -176,38 +176,45 @@
             ],
             "authors": [
                 {
-                    "name": "CLEVER CANYON",
+                    "name": "Clever Canyon",
                     "homepage": "https://clevercanyon.com",
                     "role": "organization"
                 }
             ],
-            "description": "CLEVER CANYON’s coding standards for PHP/JS.",
+            "description": "Clever Canyon’s coding standards for PHP/JS.",
             "support": {
-                "issues": "https://github.com/clevercanyon/php-js-standards/issues",
-                "source": "https://github.com/clevercanyon/php-js-standards/tree/main"
+                "issues": "https://github.com/clevercanyon/standards/issues",
+                "source": "https://github.com/clevercanyon/standards/tree/main"
             },
-            "time": "2022-01-22T07:50:50+00:00"
+            "time": "2022-02-14T00:45:25+00:00"
         },
         {
-            "name": "clevercanyon/php-js-utilities-dev",
+            "name": "clevercanyon/utilities-dev",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/clevercanyon/php-js-utilities-dev.git",
-                "reference": "18805a4ef678816632270980c25409a1325a7d3a"
+                "url": "https://github.com/clevercanyon/utilities-dev.git",
+                "reference": "c75dc2174b723bc0b85b0d771a0782f19be67333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev/zipball/18805a4ef678816632270980c25409a1325a7d3a",
-                "reference": "18805a4ef678816632270980c25409a1325a7d3a",
+                "url": "https://api.github.com/repos/clevercanyon/utilities-dev/zipball/c75dc2174b723bc0b85b0d771a0782f19be67333",
+                "reference": "c75dc2174b723bc0b85b0d771a0782f19be67333",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "^3.2",
-                "clevercanyon/php-js-standards": "dev-main",
-                "clevercanyon/php-js-utilities-dev-npm": "dev-main",
-                "clevercanyon/php-scoper": "dev-fork",
+                "clevercanyon/standards": "dev-main",
+                "clevercanyon/utilities-dev-npm": "dev-main",
+                "ext-fileinfo": "*",
+                "ext-intl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-memcached": "*",
+                "ext-posix": "*",
+                "ext-session": "*",
                 "ext-zip": "*",
+                "humbug/php-scoper": "dev-master",
                 "nikic/php-parser": "^4.13",
                 "php-64bit": "^7.4 || ^8.0 || ^8.1",
                 "php-stubs/woocommerce-stubs": ">=6.0.0",
@@ -224,30 +231,30 @@
             ],
             "authors": [
                 {
-                    "name": "CLEVER CANYON",
+                    "name": "Clever Canyon",
                     "homepage": "https://clevercanyon.com",
                     "role": "organization"
                 }
             ],
-            "description": "CLEVER CANYON’s utilities for PHP/JS (dev dependencies).",
+            "description": "Clever Canyon’s utilities for PHP/JS (dev dependencies).",
             "support": {
-                "issues": "https://github.com/clevercanyon/php-js-utilities-dev/issues",
-                "source": "https://github.com/clevercanyon/php-js-utilities-dev/tree/main"
+                "issues": "https://github.com/clevercanyon/utilities-dev/issues",
+                "source": "https://github.com/clevercanyon/utilities-dev/tree/main"
             },
-            "time": "2022-01-22T07:51:08+00:00"
+            "time": "2022-02-13T22:15:07+00:00"
         },
         {
-            "name": "clevercanyon/php-js-utilities-dev-npm",
+            "name": "clevercanyon/utilities-dev-npm",
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/clevercanyon/php-js-utilities-dev-npm.git",
-                "reference": "0a1252d9bc3824873a79728d1fbb34504fd72dc6"
+                "url": "https://github.com/clevercanyon/utilities-dev-npm.git",
+                "reference": "4654c32c69deaf6a884facf439d6ac2b98c4f90b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-js-utilities-dev-npm/zipball/0a1252d9bc3824873a79728d1fbb34504fd72dc6",
-                "reference": "0a1252d9bc3824873a79728d1fbb34504fd72dc6",
+                "url": "https://api.github.com/repos/clevercanyon/utilities-dev-npm/zipball/4654c32c69deaf6a884facf439d6ac2b98c4f90b",
+                "reference": "4654c32c69deaf6a884facf439d6ac2b98c4f90b",
                 "shasum": ""
             },
             "default-branch": true,
@@ -258,104 +265,17 @@
             ],
             "authors": [
                 {
-                    "name": "CLEVER CANYON",
+                    "name": "Clever Canyon",
                     "homepage": "https://clevercanyon.com",
                     "role": "organization"
                 }
             ],
-            "description": "CLEVER CANYON’s utilities for PHP/JS (NPM dev dependencies).",
+            "description": "Clever Canyon’s utilities for PHP/JS (NPM dev dependencies).",
             "support": {
-                "issues": "https://github.com/clevercanyon/php-js-utilities-dev-npm/issues",
-                "source": "https://github.com/clevercanyon/php-js-utilities-dev-npm/tree/main"
+                "issues": "https://github.com/clevercanyon/utilities-dev-npm/issues",
+                "source": "https://github.com/clevercanyon/utilities-dev-npm/tree/v1.0.2"
             },
-            "time": "2022-01-17T14:56:28+00:00"
-        },
-        {
-            "name": "clevercanyon/php-scoper",
-            "version": "dev-fork",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clevercanyon/php-scoper.git",
-                "reference": "f38f22665f55e09ebf023e2849507bc323b0777f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clevercanyon/php-scoper/zipball/f38f22665f55e09ebf023e2849507bc323b0777f",
-                "reference": "f38f22665f55e09ebf023e2849507bc323b0777f",
-                "shasum": ""
-            },
-            "require": {
-                "composer/package-versions-deprecated": "^1.8",
-                "fidry/console": "^0.2.0",
-                "jetbrains/phpstorm-stubs": "^v2021.1",
-                "nikic/php-parser": "^4.12",
-                "php": "^7.4 || ^8.0",
-                "symfony/console": "^5.2",
-                "symfony/filesystem": "^5.2",
-                "symfony/finder": "^5.2",
-                "symfony/polyfill-php80": "^1.23",
-                "thecodingmachine/safe": "^1.3"
-            },
-            "replace": {
-                "humbug/php-scoper": "self.version"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.1",
-                "humbug/box": "^3.13.3",
-                "phpspec/prophecy-phpunit": "^2.0",
-                "phpunit/phpunit": "^9.0"
-            },
-            "default-branch": true,
-            "bin": [
-                "bin/php-scoper"
-            ],
-            "type": "library",
-            "extra": {
-                "bamarni-bin": {
-                    "bin-links": false
-                },
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions.php",
-                    "vendor-hotfix/Configuration.php"
-                ],
-                "psr-4": {
-                    "Humbug\\PhpScoper\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernhard Schussek",
-                    "email": "bschussek@gmail.com"
-                },
-                {
-                    "name": "Théo Fidry",
-                    "email": "theo.fidry@gmail.com"
-                },
-                {
-                    "name": "Pádraic Brady",
-                    "email": "padraic.brady@gmail.com"
-                }
-            ],
-            "description": "Prefixes all PHP namespaces in a file or directory.",
-            "support": {
-                "source": "https://github.com/clevercanyon/php-scoper/tree/1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/theofidry",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-01-03T09:49:41+00:00"
+            "time": "2022-02-13T22:14:34+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -432,27 +352,27 @@
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.7.1",
+            "version": "v0.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-                "reference": "fe390591e0241955f22eb9ba327d137e501c771c"
+                "reference": "1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/fe390591e0241955f22eb9ba327d137e501c771c",
-                "reference": "fe390591e0241955f22eb9ba327d137e501c771c",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
+                "reference": "1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0 || ^2.0",
                 "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2.0 || ^3.0 || ^4.0"
+                "squizlabs/php_codesniffer": "^2.0 || ^3.1.0 || ^4.0"
             },
             "require-dev": {
                 "composer/composer": "*",
-                "phpcompatibility/php-compatibility": "^9.0",
-                "sensiolabs/security-checker": "^4.1.0"
+                "php-parallel-lint/php-parallel-lint": "^1.3.1",
+                "phpcompatibility/php-compatibility": "^9.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -473,6 +393,10 @@
                     "email": "franck.nijhof@dealerdirect.com",
                     "homepage": "http://www.frenck.nl",
                     "role": "Developer / IT Manager"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer/graphs/contributors"
                 }
             ],
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
@@ -484,6 +408,7 @@
                 "codesniffer",
                 "composer",
                 "installer",
+                "phpcbf",
                 "phpcs",
                 "plugin",
                 "qa",
@@ -498,7 +423,7 @@
                 "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
                 "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
             },
-            "time": "2020-12-07T18:04:37+00:00"
+            "time": "2022-02-04T12:51:07+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -681,12 +606,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -961,6 +886,88 @@
             "time": "2021-10-06T17:43:30+00:00"
         },
         {
+            "name": "humbug/php-scoper",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/humbug/php-scoper.git",
+                "reference": "89e135bd8fad131533ec2492e10fe13b28cc316f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/humbug/php-scoper/zipball/89e135bd8fad131533ec2492e10fe13b28cc316f",
+                "reference": "89e135bd8fad131533ec2492e10fe13b28cc316f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/package-versions-deprecated": "^1.8",
+                "fidry/console": "^0.2.0",
+                "jetbrains/phpstorm-stubs": "^v2021.1",
+                "nikic/php-parser": "^4.12",
+                "php": "^7.4 || ^8.0",
+                "symfony/console": "^5.2",
+                "symfony/filesystem": "^5.2",
+                "symfony/finder": "^5.2",
+                "symfony/polyfill-php80": "^1.23",
+                "symfony/polyfill-php81": "^1.24",
+                "thecodingmachine/safe": "^1.3"
+            },
+            "replace": {
+                "symfony/polyfill-php73": "*"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.1",
+                "humbug/box": "^3.15.0",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/php-scoper"
+            ],
+            "type": "library",
+            "extra": {
+                "bamarni-bin": {
+                    "bin-links": false
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "Humbug\\PhpScoper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                },
+                {
+                    "name": "Théo Fidry",
+                    "email": "theo.fidry@gmail.com"
+                },
+                {
+                    "name": "Pádraic Brady",
+                    "email": "padraic.brady@gmail.com"
+                }
+            ],
+            "description": "Prefixes all PHP namespaces in a file or directory.",
+            "support": {
+                "issues": "https://github.com/humbug/php-scoper/issues",
+                "source": "https://github.com/humbug/php-scoper/tree/master"
+            },
+            "time": "2022-02-13T19:46:54+00:00"
+        },
+        {
             "name": "jetbrains/phpstorm-stubs",
             "version": "v2021.3",
             "source": {
@@ -1040,12 +1047,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "JmesPath\\": "src/"
-                },
                 "files": [
                     "src/JmesPath.php"
-                ]
+                ],
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1093,12 +1100,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "DeepCopy\\": "src/DeepCopy/"
-                },
                 "files": [
                     "src/DeepCopy/deep_copy.php"
-                ]
+                ],
+                "psr-4": {
+                    "DeepCopy\\": "src/DeepCopy/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1242,16 +1249,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "bae7c545bef187884426f042434e561ab1ddb182"
+                "reference": "15a90844ad40f127afd244c0cad228de2a80052a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/bae7c545bef187884426f042434e561ab1ddb182",
-                "reference": "bae7c545bef187884426f042434e561ab1ddb182",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/15a90844ad40f127afd244c0cad228de2a80052a",
+                "reference": "15a90844ad40f127afd244c0cad228de2a80052a",
                 "shasum": ""
             },
             "require": {
@@ -1287,9 +1294,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.1.0"
+                "source": "https://github.com/phar-io/version/tree/3.1.1"
             },
-            "time": "2021-02-23T14:00:09+00:00"
+            "time": "2022-02-07T21:56:48+00:00"
         },
         {
             "name": "php-stubs/woocommerce-stubs",
@@ -1378,24 +1385,27 @@
         },
         {
             "name": "php-stubs/wordpress-stubs",
-            "version": "v5.8.2",
+            "version": "v5.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wordpress-stubs.git",
-                "reference": "67fd773742b7be5b4463f40318b0b4890a07033b"
+                "reference": "0fa8dd9a1bd2a1b60e85afc6c798fca1f599cc1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/67fd773742b7be5b4463f40318b0b4890a07033b",
-                "reference": "67fd773742b7be5b4463f40318b0b4890a07033b",
+                "url": "https://api.github.com/repos/php-stubs/wordpress-stubs/zipball/0fa8dd9a1bd2a1b60e85afc6c798fca1f599cc1b",
+                "reference": "0fa8dd9a1bd2a1b60e85afc6c798fca1f599cc1b",
                 "shasum": ""
             },
             "replace": {
                 "giacocorsiglia/wordpress-stubs": "*"
             },
             "require-dev": {
-                "giacocorsiglia/stubs-generator": "^0.5.0",
-                "php": "~7.1"
+                "nikic/php-parser": "< 4.12.0",
+                "php": "~7.3 || ~8.0",
+                "php-stubs/generator": "^0.8.0",
+                "phpdocumentor/reflection-docblock": "^5.3",
+                "phpstan/phpstan": "^1.2"
             },
             "suggest": {
                 "paragonie/sodium_compat": "Pure PHP implementation of libsodium",
@@ -1416,9 +1426,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wordpress-stubs/issues",
-                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v5.8.2"
+                "source": "https://github.com/php-stubs/wordpress-stubs/tree/v5.9.0"
             },
-            "time": "2021-11-11T13:57:00+00:00"
+            "time": "2022-01-26T00:27:45+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
@@ -2139,16 +2149,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.12",
+            "version": "9.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "93d4bf4c37aec6384bb9e5d390d9049a463a7256"
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/93d4bf4c37aec6384bb9e5d390d9049a463a7256",
-                "reference": "93d4bf4c37aec6384bb9e5d390d9049a463a7256",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
                 "shasum": ""
             },
             "require": {
@@ -2199,11 +2209,11 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "files": [
                     "src/Framework/Assert/Functions.php"
+                ],
+                "classmap": [
+                    "src/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2226,7 +2236,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.12"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
             "funding": [
                 {
@@ -2238,7 +2248,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-21T05:54:47+00:00"
+            "time": "2022-01-24T07:33:35+00:00"
         },
         {
             "name": "psr/container",
@@ -3048,16 +3058,16 @@
         },
         {
             "name": "sebastian/global-state",
-            "version": "5.0.3",
+            "version": "5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49"
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/23bd5951f7ff26f12d4e3242864df3e08dec4e49",
-                "reference": "23bd5951f7ff26f12d4e3242864df3e08dec4e49",
+                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/0ca8db5a5fc9c8646244e629625ac486fa286bf2",
+                "reference": "0ca8db5a5fc9c8646244e629625ac486fa286bf2",
                 "shasum": ""
             },
             "require": {
@@ -3100,7 +3110,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.3"
+                "source": "https://github.com/sebastianbergmann/global-state/tree/5.0.5"
             },
             "funding": [
                 {
@@ -3108,7 +3118,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-11T13:31:12+00:00"
+            "time": "2022-02-14T08:28:10+00:00"
         },
         {
             "name": "sebastian/lines-of-code",
@@ -3564,16 +3574,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.2",
+            "version": "v5.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a2c6b7ced2eb7799a35375fb9022519282b5405e"
+                "reference": "a2a86ec353d825c75856c6fd14fac416a7bdb6b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a2c6b7ced2eb7799a35375fb9022519282b5405e",
-                "reference": "a2c6b7ced2eb7799a35375fb9022519282b5405e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/a2a86ec353d825c75856c6fd14fac416a7bdb6b8",
+                "reference": "a2a86ec353d825c75856c6fd14fac416a7bdb6b8",
                 "shasum": ""
             },
             "require": {
@@ -3643,7 +3653,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.2"
+                "source": "https://github.com/symfony/console/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3659,7 +3669,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-20T16:11:12+00:00"
+            "time": "2022-01-26T16:28:35+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3809,16 +3819,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v5.4.0",
+            "version": "v5.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "731f917dc31edcffec2c6a777f3698c33bea8f01"
+                "reference": "0f0c4bf1840420f4aef3f32044a9dbb24682731b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/731f917dc31edcffec2c6a777f3698c33bea8f01",
-                "reference": "731f917dc31edcffec2c6a777f3698c33bea8f01",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0f0c4bf1840420f4aef3f32044a9dbb24682731b",
+                "reference": "0f0c4bf1840420f4aef3f32044a9dbb24682731b",
                 "shasum": ""
             },
             "require": {
@@ -3853,7 +3863,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.4.0"
+                "source": "https://github.com/symfony/filesystem/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3869,20 +3879,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-28T13:39:27+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v5.4.2",
+            "version": "v5.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e77046c252be48c48a40816187ed527703c8f76c"
+                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e77046c252be48c48a40816187ed527703c8f76c",
-                "reference": "e77046c252be48c48a40816187ed527703c8f76c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/231313534dded84c7ecaa79d14bc5da4ccb69b7d",
+                "reference": "231313534dded84c7ecaa79d14bc5da4ccb69b7d",
                 "shasum": ""
             },
             "require": {
@@ -3916,7 +3926,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.2"
+                "source": "https://github.com/symfony/finder/tree/v5.4.3"
             },
             "funding": [
                 {
@@ -3932,7 +3942,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-15T11:06:13+00:00"
+            "time": "2022-01-26T16:34:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -4047,12 +4057,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4128,12 +4138,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -4215,12 +4225,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4265,85 +4275,6 @@
             "time": "2021-11-30T18:21:41+00:00"
         },
         {
-            "name": "symfony/polyfill-php73",
-            "version": "v1.24.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "cc5db0e22b3cb4111010e48785a97f670b350ca5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/cc5db0e22b3cb4111010e48785a97f670b350ca5",
-                "reference": "cc5db0e22b3cb4111010e48785a97f670b350ca5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.23-dev"
-                },
-                "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php73\\": ""
-                },
-                "files": [
-                    "bootstrap.php"
-                ],
-                "classmap": [
-                    "Resources/stubs"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.24.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2021-06-05T21:20:04+00:00"
-        },
-        {
             "name": "symfony/polyfill-php80",
             "version": "v1.24.0",
             "source": {
@@ -4371,12 +4302,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -4425,6 +4356,85 @@
                 }
             ],
             "time": "2021-09-13T13:58:33+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php81",
+            "version": "v1.24.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php81.git",
+                "reference": "5de4ba2d41b15f9bd0e19b2ab9674135813ec98f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php81/zipball/5de4ba2d41b15f9bd0e19b2ab9674135813ec98f",
+                "reference": "5de4ba2d41b15f9bd0e19b2ab9674135813ec98f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php81\\": ""
+                },
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.24.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-13T13:58:11+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -4510,16 +4520,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.0.2",
+            "version": "v6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "bae261d0c3ac38a1f802b4dfed42094296100631"
+                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/bae261d0c3ac38a1f802b4dfed42094296100631",
-                "reference": "bae261d0c3ac38a1f802b4dfed42094296100631",
+                "url": "https://api.github.com/repos/symfony/string/zipball/522144f0c4c004c80d56fa47e40e17028e2eefc2",
+                "reference": "522144f0c4c004c80d56fa47e40e17028e2eefc2",
                 "shasum": ""
             },
             "require": {
@@ -4575,7 +4585,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.0.2"
+                "source": "https://github.com/symfony/string/tree/v6.0.3"
             },
             "funding": [
                 {
@@ -4591,7 +4601,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-16T22:13:01+00:00"
+            "time": "2022-01-02T09:55:41+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -4622,13 +4632,6 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Safe\\": [
-                        "lib/",
-                        "deprecated/",
-                        "generated/"
-                    ]
-                },
                 "files": [
                     "deprecated/apc.php",
                     "deprecated/libevent.php",
@@ -4719,7 +4722,14 @@
                     "generated/yaz.php",
                     "generated/zip.php",
                     "generated/zlib.php"
-                ]
+                ],
+                "psr-4": {
+                    "Safe\\": [
+                        "lib/",
+                        "deprecated/",
+                        "generated/"
+                    ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4946,7 +4956,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "clevercanyon/php-js-utilities-dev": 20
+        "clevercanyon/utilities-dev": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
